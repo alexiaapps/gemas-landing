@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEMAS — Despierta tu diamante interior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0D0B2A; --navy2:#1A1440; --purple:#7B2FBE; --purple-light:#A855F7;
+  --pink:#D4537E; --gold:#E8A020; --teal:#1D9E75;
+  --white:#FFFFFF; --offwhite:#F0EBF8; --muted:#9B8EC4; --border:rgba(123,47,190,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;opacity:0.18}
+.orb-1{width:600px;height:600px;background:var(--purple);top:-200px;right:-100px}
+.orb-2{width:400px;height:400px;background:var(--pink);bottom:10%;left:-100px}
+.orb-3{width:300px;height:300px;background:var(--teal);top:50%;right:10%}
+.container{max-width:1080px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+nav{padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo svg{width:32px;height:32px}
+.nav-logo span{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-0.02em}
+.lang-toggle{background:rgba(123,47,190,0.2);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.lang-toggle:hover{background:rgba(123,47,190,0.35);color:var(--white)}
+.hero{padding:5rem 0 4rem;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,160,32,0.12);border:1px solid rgba(232,160,32,0.3);border-radius:20px;padding:6px 16px;font-size:13px;color:var(--gold);margin-bottom:2rem;font-weight:500}
+.hero-badge span{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,6vw,5rem);line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+h1 .accent-gold{color:var(--gold)}
+h1 .accent-pink{color:var(--pink)}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:560px;margin:0 auto 2.5rem;font-weight:300;line-height:1.7}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--purple);color:var(--white);padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:500;text-decoration:none;transition:all 0.25s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.hero-cta:hover{background:var(--purple-light);transform:translateY(-2px)}
+.hero-cta svg{width:18px;height:18px}
+.hero-stats{display:flex;justify-content:center;gap:3rem;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border)}
+.stat-item{text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;display:block;margin-bottom:4px}
+.stat-num.c-purple{color:var(--purple-light)}
+.stat-num.c-pink{color:var(--pink)}
+.stat-num.c-gold{color:var(--gold)}
+.stat-label{font-size:12px;color:var(--muted);font-weight:300;max-width:120px}
+.section{padding:5rem 0}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-light);margin-bottom:1rem}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1rem}
+h2 em{font-style:normal;color:var(--pink)}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.problem-card{background:rgba(26,20,64,0.6);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;overflow:hidden;transition:border-color 0.25s}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.problem-card.p1::before{background:var(--purple-light)}
+.problem-card.p2::before{background:var(--pink)}
+.problem-card.p3::before{background:var(--gold)}
+.problem-card:hover{border-color:rgba(123,47,190,0.5)}
+.problem-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;margin-bottom:0.5rem}
+.p1 .problem-num{color:var(--purple-light)}
+.p2 .problem-num{color:var(--pink)}
+.p3 .problem-num{color:var(--gold)}
+.problem-label{font-weight:500;margin-bottom:6px;font-size:0.95rem}
+.problem-source{font-size:11px;color:var(--muted);font-style:italic}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
+.step{background:rgba(26,20,64,0.5);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform 0.2s,border-color 0.2s}
+.step:hover{transform:translateY(-4px);border-color:rgba(123,47,190,0.5)}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;margin-bottom:1rem}
+.step:nth-child(1) .step-num{background:rgba(123,47,190,0.25);color:var(--purple-light)}
+.step:nth-child(2) .step-num{background:rgba(212,83,126,0.25);color:var(--pink)}
+.step:nth-child(3) .step-num{background:rgba(232,160,32,0.25);color:var(--gold)}
+.step:nth-child(4) .step-num{background:rgba(29,158,117,0.25);color:var(--teal)}
+.step h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:6px}
+.step p{font-size:13px;color:var(--muted);line-height:1.5;font-weight:300}
+.survey-wrap{background:rgba(26,20,64,0.7);border:1px solid var(--border);border-radius:24px;padding:3rem;margin-top:2rem}
+.survey-section{margin-bottom:2.5rem}
+.survey-section-title{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
+.question{margin-bottom:1.75rem}
+.question label{display:block;font-size:0.95rem;font-weight:500;margin-bottom:0.75rem;color:var(--offwhite);line-height:1.4}
+.question label .q-num{display:inline-block;background:rgba(123,47,190,0.25);color:var(--purple-light);font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-right:8px;vertical-align:middle}
+.options{display:flex;flex-wrap:wrap;gap:8px}
+.option-btn{background:rgba(15,11,42,0.6);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;user-select:none}
+.option-btn:hover{border-color:var(--purple-light);color:var(--white)}
+.option-btn.selected{background:rgba(123,47,190,0.25);border-color:var(--purple-light);color:var(--white)}
+.scale{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.scale-btn{width:40px;height:40px;background:rgba(15,11,42,0.6);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center}
+.scale-btn:hover{border-color:var(--purple-light);color:var(--white)}
+.scale-btn.selected{background:rgba(123,47,190,0.25);border-color:var(--purple-light);color:var(--white)}
+textarea,input[type="email"],input[type="text"]{width:100%;background:rgba(15,11,42,0.6);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;resize:vertical}
+textarea:focus,input:focus{outline:none;border-color:var(--purple-light);box-shadow:0 0 0 3px rgba(123,47,190,0.15)}
+textarea::placeholder,input::placeholder{color:var(--muted)}
+.progress-bar{background:rgba(123,47,190,0.2);border-radius:4px;height:4px;margin-bottom:2rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:4px;transition:width 0.4s ease;width:0%}
+.submit-btn{width:100%;background:var(--purple);color:var(--white);border:none;border-radius:12px;padding:16px;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.25s;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.submit-btn:hover{background:var(--purple-light);transform:translateY(-1px)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.success-msg{display:none;text-align:center;padding:3rem 2rem}
+.success-msg.show{display:block}
+.success-icon{font-size:3rem;margin-bottom:1rem}
+.success-msg h3{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:0.75rem;color:var(--gold)}
+.success-msg p{color:var(--muted);font-weight:300}
+footer{padding:3rem 0;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:13px;color:var(--muted);font-weight:300}
+footer strong{color:var(--white);font-weight:500}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.6s ease forwards;opacity:0}
+.delay-1{animation-delay:0.1s}.delay-2{animation-delay:0.2s}.delay-3{animation-delay:0.3s}.delay-4{animation-delay:0.4s}
+/* Areas grid */
+.areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:8px}
+.area-btn{background:rgba(15,11,42,0.6);border:1px solid var(--border);border-radius:12px;padding:14px 12px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;text-align:center;user-select:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.area-btn .area-icon{font-size:1.5rem;line-height:1}
+.area-btn:hover{border-color:var(--purple-light);color:var(--white)}
+.area-btn.selected{background:rgba(123,47,190,0.2);border-color:var(--purple-light);color:var(--white)}
+.area-btn.selected .area-icon{transform:scale(1.1)}
+@media(max-width:640px){.hero-stats{gap:1.5rem}.survey-wrap{padding:1.75rem}.areas-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="container">
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none">
+      <polygon points="16,2 19.5,12 30,12 21.5,18.5 24.5,29 16,23 7.5,29 10.5,18.5 2,12 12.5,12" fill="white" opacity="0.95"/>
+      <circle cx="16" cy="16" r="4" fill="none" stroke="#E8A020" stroke-width="1.2"/>
+    </svg>
+    <span>GEMAS</span>
+  </div>
+  <button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌐 English</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge fade-up">
+    <span></span>
+    <span data-es="Beta abierta próximamente" data-en="Beta opening soon">Beta abierta próximamente</span>
+  </div>
+  <h1 class="fade-up delay-1">
+    <span data-es="Despierta tu" data-en="Unlock your">Despierta tu</span><br>
+    <span class="accent-gold" data-es="diamante" data-en="inner">diamante</span><span class="accent-pink" data-es=" interior" data-en=" diamond"> interior</span>
+  </h1>
+  <p class="hero-sub fade-up delay-2" data-es="Un sistema gamificado para construir tu vida. Define metas, toma acción, gana gemas, avanza." data-en="A gamified system to build your life. Set goals, take action, earn gems, level up.">
+    Un sistema gamificado para construir tu vida. Define metas, toma acción, gana gemas, avanza.
+  </p>
+  <a href="#survey" class="hero-cta fade-up delay-3">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <span data-es="Únete a la beta · 2 minutos" data-en="Join the beta · 2 minutes">Únete a la beta · 2 minutos</span>
+  </a>
+  <div class="hero-stats fade-up delay-4">
+    <div class="stat-item">
+      <span class="stat-num c-purple">58%</span>
+      <span class="stat-label" data-es="sin sentido de propósito claro" data-en="without a clear sense of purpose">sin sentido de propósito claro</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num c-pink">92%</span>
+      <span class="stat-label" data-es="fracasa en sus metas anuales" data-en="fail their annual goals">fracasa en sus metas anuales</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num c-gold">80%</span>
+      <span class="stat-label" data-es="nunca revisa sus objetivos" data-en="never revisit their goals">nunca revisa sus objetivos</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <p class="section-label" data-es="El problema" data-en="The problem">El problema</p>
+  <h2><span data-es="No fallamos nosotros." data-en="We don't fail.">No fallamos nosotros.</span><br><em data-es="Falla el sistema." data-en="The system fails.">Falla el sistema.</em></h2>
+  <div class="problem-grid">
+    <div class="problem-card p1">
+      <div class="problem-num">58%</div>
+      <p class="problem-label" data-es="sin sentido de propósito" data-en="without sense of purpose">sin sentido de propósito</p>
+      <p class="problem-source">Harvard GSE, 2023</p>
+    </div>
+    <div class="problem-card p2">
+      <div class="problem-num">35.8%</div>
+      <p class="problem-label" data-es="ansiedad o depresión en jóvenes MX" data-en="anxiety or depression in MX youth">ansiedad o depresión en jóvenes MX</p>
+      <p class="problem-source">Child Psychiatry & Human Dev., 2021</p>
+    </div>
+    <div class="problem-card p3">
+      <div class="problem-num">80%</div>
+      <p class="problem-label" data-es="soledad extrema Gen Z" data-en="extreme loneliness Gen Z">soledad extrema Gen Z</p>
+      <p class="problem-source">GWI Research, Nov 2024</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="padding-top:0">
+  <p class="section-label" data-es="Cómo funciona" data-en="How it works">Cómo funciona</p>
+  <h2 data-es="Funciona como un juego. Transforma tu vida." data-en="Works like a game. Transforms your life.">Funciona como un juego. Transforma tu vida.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3 data-es="Define tu Norte" data-en="Define your North">Define tu Norte</h3><p data-es="Flamita, tu coach IA, crea tu roadmap personalizado" data-en="Flamita, your AI coach, creates your personal roadmap">Flamita, tu coach IA, crea tu roadmap personalizado</p></div>
+    <div class="step"><div class="step-num">2</div><h3 data-es="Elige tus metas" data-en="Set your goals">Elige tus metas</h3><p data-es="5 metas semanales en 7 dimensiones de vida" data-en="5 weekly goals across 7 life dimensions">5 metas semanales en 7 dimensiones de vida</p></div>
+    <div class="step"><div class="step-num">3</div><h3 data-es="Actúa y demuestra" data-en="Act and prove it">Actúa y demuestra</h3><p data-es="Foto de evidencia → IA valida → Confetti + XP" data-en="Photo evidence → AI validates → Confetti + XP">Foto de evidencia → IA valida → Confetti + XP</p></div>
+    <div class="step"><div class="step-num">4</div><h3 data-es="Avanza en el tablero" data-en="Level up your board">Avanza en el tablero</h3><p data-es="Gemas · Rachas · Squads · Mentores" data-en="Gems · Streaks · Squads · Mentors">Gemas · Rachas · Squads · Mentores</p></div>
+  </div>
+</section>
+
+<!-- SURVEY -->
+<section class="section" id="survey" style="padding-top:0">
+  <p class="section-label" data-es="Únete a la beta" data-en="Join the beta">Únete a la beta</p>
+  <h2><span data-es="Ayúdanos a construir" data-en="Help us build">Ayúdanos a construir</span><br><em data-es="el sistema que necesitas" data-en="the system you need">el sistema que necesitas</em></h2>
+
+  <div class="survey-wrap" id="surveyForm">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <!-- SECCIÓN 0 — DEMOGRÁFICAS -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Sobre ti" data-en="About you">Sobre ti</p>
+
+      <div class="question">
+        <label><span class="q-num">1</span><span data-es="¿Cuántos años tienes?" data-en="How old are you?">¿Cuántos años tienes?</span></label>
+        <div class="options" data-q="q1" data-type="single">
+          <button class="option-btn" data-es="Menos de 15" data-en="Under 15">Menos de 15</button>
+          <button class="option-btn" data-es="15–18" data-en="15–18">15–18</button>
+          <button class="option-btn" data-es="19–22" data-en="19–22">19–22</button>
+          <button class="option-btn" data-es="23–28" data-en="23–28">23–28</button>
+          <button class="option-btn" data-es="29–35" data-en="29–35">29–35</button>
+          <button class="option-btn" data-es="Más de 35" data-en="35+">Más de 35</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">2</span><span data-es="¿En qué país vives?" data-en="What country do you live in?">¿En qué país vives?</span></label>
+        <input type="text" placeholder="México, Colombia, España..." data-q="q2" data-es-placeholder="México, Colombia, España..." data-en-placeholder="Mexico, Colombia, Spain..." />
+      </div>
+    </div>
+
+    <!-- SECCIÓN 1 — METAS -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Tus metas y propósito" data-en="Your goals and purpose">Tus metas y propósito</p>
+
+      <div class="question">
+        <label><span class="q-num">3</span><span data-es="¿Cuántas veces te has puesto metas o propósitos este año?" data-en="How many times have you set goals this year?">¿Cuántas veces te has puesto metas o propósitos este año?</span></label>
+        <div class="options" data-q="q3" data-type="single">
+          <button class="option-btn" data-es="Ninguna" data-en="None">Ninguna</button>
+          <button class="option-btn" data-es="1–2 veces" data-en="1–2 times">1–2 veces</button>
+          <button class="option-btn" data-es="3–5 veces" data-en="3–5 times">3–5 veces</button>
+          <button class="option-btn" data-es="Más de 5" data-en="More than 5">Más de 5</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">4</span><span data-es="¿Qué tan claro tienes tu propósito de vida?" data-en="How clear is your sense of life purpose?">¿Qué tan claro tienes tu propósito de vida?</span></label>
+        <div class="scale" data-q="q4" data-type="scale">
+          <span style="font-size:12px;color:var(--muted);margin-right:6px" data-es="Nada claro" data-en="Not at all">Nada claro</span>
+          <button class="scale-btn">1</button><button class="scale-btn">2</button><button class="scale-btn">3</button><button class="scale-btn">4</button><button class="scale-btn">5</button>
+          <span style="font-size:12px;color:var(--muted);margin-left:6px" data-es="Muy claro" data-en="Very clear">Muy claro</span>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">5</span><span data-es="¿Sabes paso a paso cómo lograr tus metas?" data-en="Do you know step by step how to achieve your goals?">¿Sabes paso a paso cómo lograr tus metas?</span></label>
+        <div class="scale" data-q="q5" data-type="scale">
+          <span style="font-size:12px;color:var(--muted);margin-right:6px" data-es="Para nada" data-en="Not at all">Para nada</span>
+          <button class="scale-btn">1</button><button class="scale-btn">2</button><button class="scale-btn">3</button><button class="scale-btn">4</button><button class="scale-btn">5</button>
+          <span style="font-size:12px;color:var(--muted);margin-left:6px" data-es="Completamente" data-en="Completely">Completamente</span>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">6</span><span data-es="¿Qué te limita más para lograr tus metas? (puedes elegir varias)" data-en="What limits you most from achieving your goals?">¿Qué te limita más para lograr tus metas? (puedes elegir varias)</span></label>
+        <div class="options" data-q="q6" data-type="multi">
+          <button class="option-btn" data-es="Falta de tiempo" data-en="Lack of time">Falta de tiempo</button>
+          <button class="option-btn" data-es="Falta de disciplina" data-en="Lack of discipline">Falta de disciplina</button>
+          <button class="option-btn" data-es="No sé por dónde empezar" data-en="Don't know where to start">No sé por dónde empezar</button>
+          <button class="option-btn" data-es="Nadie me acompaña" data-en="No one holds me accountable">Nadie me acompaña</button>
+          <button class="option-btn" data-es="Pierdo motivación" data-en="I lose motivation">Pierdo motivación</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2 — PERFIL -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Tu situación actual" data-en="Your current situation">Tu situación actual</p>
+
+      <div class="question">
+        <label><span class="q-num">7</span><span data-es="¿En qué etapa de vida estás?" data-en="What life stage are you in?">¿En qué etapa de vida estás?</span></label>
+        <div class="options" data-q="q7" data-type="single">
+          <button class="option-btn" data-es="Preparatoria" data-en="High school">Preparatoria</button>
+          <button class="option-btn" data-es="Universidad" data-en="University">Universidad</button>
+          <button class="option-btn" data-es="Primeros años de trabajo" data-en="Early career">Primeros años de trabajo</button>
+          <button class="option-btn" data-es="Otro" data-en="Other">Otro</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">8</span><span data-es="¿Cuánto tiempo mantienes una meta antes de abandonarla?" data-en="How long do you maintain a goal before giving up?">¿Cuánto tiempo mantienes una meta antes de abandonarla?</span></label>
+        <div class="options" data-q="q8" data-type="single">
+          <button class="option-btn" data-es="Menos de 1 semana" data-en="Less than 1 week">Menos de 1 semana</button>
+          <button class="option-btn" data-es="2–4 semanas" data-en="2–4 weeks">2–4 semanas</button>
+          <button class="option-btn" data-es="1–3 meses" data-en="1–3 months">1–3 meses</button>
+          <button class="option-btn" data-es="Las sostengo" data-en="I sustain them">Las sostengo</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">9</span><span data-es="¿Tienes personas que te hagan responsable de tus metas?" data-en="Do you have people who hold you accountable?">¿Tienes personas que te hagan responsable de tus metas?</span></label>
+        <div class="options" data-q="q9" data-type="single">
+          <button class="option-btn" data-es="Sí, siempre" data-en="Yes, always">Sí, siempre</button>
+          <button class="option-btn" data-es="A veces" data-en="Sometimes">A veces</button>
+          <button class="option-btn" data-es="No realmente" data-en="Not really">No realmente</button>
+          <button class="option-btn" data-es="No, y lo extraño" data-en="No, and I miss it">No, y lo extraño</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3 — VALIDACIÓN -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Sobre la solución" data-en="About the solution">Sobre la solución</p>
+
+      <div class="question">
+        <label><span class="q-num">10</span><span data-es="¿Has usado una app de metas o hábitos? ¿Por qué la dejaste?" data-en="Have you used a goals or habits app? Why did you stop?">¿Has usado una app de metas o hábitos? ¿Por qué la dejaste?</span></label>
+        <textarea rows="3" placeholder="Puedes escribir el nombre y tu experiencia..." data-q="q10" data-es-placeholder="Puedes escribir el nombre y tu experiencia..." data-en-placeholder="You can write the app name and your experience..."></textarea>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">11</span><span data-es="¿Qué tan probable es que usaras GEMAS? (1 = para nada · 10 = definitivamente)" data-en="How likely are you to use GEMAS? (1 = not at all · 10 = definitely)">¿Qué tan probable es que usaras GEMAS? (1 = para nada · 10 = definitivamente)</span></label>
+        <div class="scale" data-q="q11" data-type="scale10" style="gap:5px">
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">1</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">2</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">3</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">4</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">5</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">6</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">7</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">8</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">9</button>
+          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">10</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">12</span><span data-es="¿Cuánto pagarías al mes por GEMAS?" data-en="How much would you pay per month for GEMAS?">¿Cuánto pagarías al mes por GEMAS?</span></label>
+        <div class="options" data-q="q12" data-type="single">
+          <button class="option-btn" data-es="No pagaría" data-en="Nothing">No pagaría</button>
+          <button class="option-btn" data-es="$1–5 USD" data-en="$1–5 USD">$1–5 USD</button>
+          <button class="option-btn" data-es="$6–10 USD" data-en="$6–10 USD">$6–10 USD</button>
+          <button class="option-btn" data-es="$11–15 USD" data-en="$11–15 USD">$11–15 USD</button>
+          <button class="option-btn" data-es="Más de $15 USD" data-en="More than $15 USD">Más de $15 USD</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4 — ÁREAS DE VIDA -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Áreas de vida" data-en="Life areas">Áreas de vida</p>
+
+      <div class="question">
+        <label><span class="q-num">13</span><span data-es="Tenemos sistemas para estudiar, trabajar y producir — pero pocas veces para crecer como personas. ¿En cuáles de estas áreas sientes que tienes un sistema claro para crecer? (elige todas las que apliquen)" data-en="We have systems for studying and working — but rarely for growing as people. In which of these areas do you have a clear system to grow?">Tenemos sistemas para estudiar, trabajar y producir — pero pocas veces para crecer como personas. ¿En cuáles de estas áreas sientes que tienes un sistema claro para crecer?</span></label>
+        <div class="areas-grid" data-q="q13" data-type="multi-area">
+          <button class="area-btn"><span class="area-icon">📚</span><span data-es="Académico" data-en="Academic">Académico</span></button>
+          <button class="area-btn"><span class="area-icon">💼</span><span data-es="Profesional" data-en="Professional">Profesional</span></button>
+          <button class="area-btn"><span class="area-icon">💰</span><span data-es="Financiero" data-en="Financial">Financiero</span></button>
+          <button class="area-btn"><span class="area-icon">❤️</span><span data-es="Amor / Relaciones" data-en="Love / Relationships">Amor / Relaciones</span></button>
+          <button class="area-btn"><span class="area-icon">👨‍👩‍👧</span><span data-es="Familia" data-en="Family">Familia</span></button>
+          <button class="area-btn"><span class="area-icon">🏃</span><span data-es="Físico / Salud" data-en="Physical / Health">Físico / Salud</span></button>
+          <button class="area-btn"><span class="area-icon">🧘</span><span data-es="Espiritual / Propósito" data-en="Spiritual / Purpose">Espiritual / Propósito</span></button>
+          <button class="area-btn"><span class="area-icon">😊</span><span data-es="Emocional" data-en="Emotional">Emocional</span></button>
+          <button class="area-btn"><span class="area-icon">🌱</span><span data-es="Social / Comunidad" data-en="Social / Community">Social / Comunidad</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5 — WAITLIST -->
+    <div class="survey-section">
+      <p class="survey-section-title" data-es="Únete a la lista de espera" data-en="Join the waitlist">Únete a la lista de espera</p>
+      <div class="question">
+        <label><span class="q-num">14</span><span data-es="¿Quieres ser de los primeros en probar GEMAS? Déjanos tu email 🔥" data-en="Want to be first to try GEMAS? Leave your email 🔥">¿Quieres ser de los primeros en probar GEMAS? Déjanos tu email 🔥</span></label>
+        <input type="email" id="emailInput" placeholder="tu@email.com" data-q="q14" />
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()" id="submitBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span data-es="Enviar y unirme a la beta" data-en="Submit and join the beta">Enviar y unirme a la beta</span>
+    </button>
+  </div>
+
+  <div class="success-msg" id="successMsg">
+    <div class="success-icon">💎</div>
+    <h3 data-es="¡Ya eres parte de GEMAS!" data-en="You're part of GEMAS!">¡Ya eres parte de GEMAS!</h3>
+    <p data-es="Gracias por tu tiempo. Te avisaremos cuando abramos la beta. Comparte GEMAS con alguien que lo necesite." data-en="Thank you! We'll notify you when we open the beta. Share GEMAS with someone who needs it.">Gracias por tu tiempo. Te avisaremos cuando abramos la beta. Comparte GEMAS con alguien que lo necesite.</p>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="container">
+    <p><strong>GEMAS</strong> · <span data-es="Despierta tu diamante interior" data-en="Unlock your inner diamond">Despierta tu diamante interior</span> · <a href="mailto:hola@gemas.app" style="color:var(--purple-light)">hola@gemas.app</a></p>
+  </div>
+</footer>
+
+<script>
+let lang = 'es';
+const answers = {};
+const TOTAL = 14;
+
+function toggleLang() {
+  lang = lang === 'es' ? 'en' : 'es';
+  document.getElementById('langBtn').textContent = lang === 'es' ? '🌐 English' : '🌐 Español';
+  document.querySelectorAll('[data-es]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  document.querySelectorAll('[data-es-placeholder]').forEach(el => {
+    el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+  });
+}
+
+// Single/multi option buttons
+document.querySelectorAll('.options').forEach(group => {
+  const type = group.dataset.type;
+  const q = group.dataset.q;
+  group.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (type === 'single') {
+        group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      }
+      btn.classList.toggle('selected');
+      answers[q] = type === 'single'
+        ? btn.getAttribute('data-' + lang)
+        : [...group.querySelectorAll('.option-btn.selected')].map(b => b.getAttribute('data-' + lang));
+      updateProgress();
+    });
+  });
+});
+
+// Area grid buttons
+document.querySelectorAll('.areas-grid').forEach(group => {
+  const q = group.dataset.q;
+  group.querySelectorAll('.area-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('selected');
+      answers[q] = [...group.querySelectorAll('.area-btn.selected')]
+        .map(b => b.querySelector('span:last-child').getAttribute('data-' + lang));
+      updateProgress();
+    });
+  });
+});
+
+// Scale buttons
+document.querySelectorAll('.scale').forEach(group => {
+  const q = group.dataset.q;
+  group.querySelectorAll('.scale-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      answers[q] = btn.textContent;
+      updateProgress();
+    });
+  });
+});
+
+// Text inputs
+document.querySelectorAll('textarea, input[type="email"], input[type="text"]').forEach(el => {
+  el.addEventListener('input', () => {
+    answers[el.dataset.q] = el.value;
+    updateProgress();
+  });
+});
+
+function updateProgress() {
+  const filled = Object.keys(answers).filter(k => {
+    const v = answers[k];
+    if (!v) return false;
+    if (Array.isArray(v)) return v.length > 0;
+    return v.toString().trim() !== '';
+  }).length;
+  document.getElementById('progressFill').style.width = Math.round((filled / TOTAL) * 100) + '%';
+}
+
+function submitForm() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = lang === 'es' ? 'Enviando...' : 'Submitting...';
+  setTimeout(() => {
+    document.getElementById('surveyForm').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+    window.scrollTo({ top: document.getElementById('survey').offsetTop - 80, behavior: 'smooth' });
+  }, 800);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
