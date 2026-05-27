@@ -145,7 +145,7 @@ footer strong{color:var(--white);font-weight:500}
   <p class="hero-sub fade-up delay-2" data-es="Un sistema gamificado para construir tu vida. Define metas, toma acción, gana gemas, avanza." data-en="A gamified system to build your life. Set goals, take action, earn gems, level up.">
     Un sistema gamificado para construir tu vida. Define metas, toma acción, gana gemas, avanza.
   </p>
-  <a href="#survey" class="hero-cta fade-up delay-3">
+  <a href="https://tally.so/r/9qojeV" target="_blank" class="hero-cta fade-up delay-3">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
     <span data-es="Únete a la beta · 2 minutos" data-en="Join the beta · 2 minutes">Únete a la beta · 2 minutos</span>
   </a>
@@ -200,191 +200,31 @@ footer strong{color:var(--white);font-weight:500}
   </div>
 </section>
 
-<!-- SURVEY -->
+<!-- CTA -->
 <section class="section" id="survey" style="padding-top:0">
   <p class="section-label" data-es="Únete a la beta" data-en="Join the beta">Únete a la beta</p>
   <h2><span data-es="Ayúdanos a construir" data-en="Help us build">Ayúdanos a construir</span><br><em data-es="el sistema que necesitas" data-en="the system you need">el sistema que necesitas</em></h2>
 
-  <div class="survey-wrap" id="surveyForm">
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div style="background:rgba(26,20,64,0.7);border:1px solid var(--border);border-radius:24px;padding:3rem;margin-top:2rem;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:1rem">💎</div>
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:1rem;" data-es="2 minutos que pueden cambiar cómo creces" data-en="2 minutes that can change how you grow">2 minutos que pueden cambiar cómo creces</h3>
+    <p style="color:var(--muted);max-width:480px;margin:0 auto 2rem;font-weight:300;line-height:1.7" data-es="Responde 14 preguntas sobre tus metas, tu propósito y las áreas de tu vida. Tus respuestas nos ayudan a construir GEMAS para ti." data-en="Answer 14 questions about your goals, purpose and life areas. Your answers help us build GEMAS for you.">Responde 14 preguntas sobre tus metas, tu propósito y las áreas de tu vida. Tus respuestas nos ayudan a construir GEMAS para ti.</p>
 
-    <!-- SECCIÓN 0 — DEMOGRÁFICAS -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Sobre ti" data-en="About you">Sobre ti</p>
-
-      <div class="question">
-        <label><span class="q-num">1</span><span data-es="¿Cuántos años tienes?" data-en="How old are you?">¿Cuántos años tienes?</span></label>
-        <div class="options" data-q="q1" data-type="single">
-          <button class="option-btn" data-es="Menos de 15" data-en="Under 15">Menos de 15</button>
-          <button class="option-btn" data-es="15–18" data-en="15–18">15–18</button>
-          <button class="option-btn" data-es="19–22" data-en="19–22">19–22</button>
-          <button class="option-btn" data-es="23–28" data-en="23–28">23–28</button>
-          <button class="option-btn" data-es="29–35" data-en="29–35">29–35</button>
-          <button class="option-btn" data-es="Más de 35" data-en="35+">Más de 35</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">2</span><span data-es="¿En qué país vives?" data-en="What country do you live in?">¿En qué país vives?</span></label>
-        <input type="text" placeholder="México, Colombia, España..." data-q="q2" data-es-placeholder="México, Colombia, España..." data-en-placeholder="Mexico, Colombia, Spain..." />
-      </div>
+    <div id="counterBlock" style="margin-bottom:1.5rem;display:none;">
+      <span style="font-size:2.5rem;font-family:'Syne',sans-serif;font-weight:800;color:var(--gold)" id="counterNum">0</span>
+      <p style="color:var(--muted);font-size:14px;margin-top:4px" data-es="personas ya están listas para alcanzar sus metas con GEMAS" data-en="people are ready to achieve their goals with GEMAS">personas ya están listas para alcanzar sus metas con GEMAS</p>
     </div>
 
-    <!-- SECCIÓN 1 — METAS -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Tus metas y propósito" data-en="Your goals and purpose">Tus metas y propósito</p>
-
-      <div class="question">
-        <label><span class="q-num">3</span><span data-es="¿Cuántas veces te has puesto metas o propósitos este año?" data-en="How many times have you set goals this year?">¿Cuántas veces te has puesto metas o propósitos este año?</span></label>
-        <div class="options" data-q="q3" data-type="single">
-          <button class="option-btn" data-es="Ninguna" data-en="None">Ninguna</button>
-          <button class="option-btn" data-es="1–2 veces" data-en="1–2 times">1–2 veces</button>
-          <button class="option-btn" data-es="3–5 veces" data-en="3–5 times">3–5 veces</button>
-          <button class="option-btn" data-es="Más de 5" data-en="More than 5">Más de 5</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">4</span><span data-es="¿Qué tan claro tienes tu propósito de vida?" data-en="How clear is your sense of life purpose?">¿Qué tan claro tienes tu propósito de vida?</span></label>
-        <div class="scale" data-q="q4" data-type="scale">
-          <span style="font-size:12px;color:var(--muted);margin-right:6px" data-es="Nada claro" data-en="Not at all">Nada claro</span>
-          <button class="scale-btn">1</button><button class="scale-btn">2</button><button class="scale-btn">3</button><button class="scale-btn">4</button><button class="scale-btn">5</button>
-          <span style="font-size:12px;color:var(--muted);margin-left:6px" data-es="Muy claro" data-en="Very clear">Muy claro</span>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">5</span><span data-es="¿Sabes paso a paso cómo lograr tus metas?" data-en="Do you know step by step how to achieve your goals?">¿Sabes paso a paso cómo lograr tus metas?</span></label>
-        <div class="scale" data-q="q5" data-type="scale">
-          <span style="font-size:12px;color:var(--muted);margin-right:6px" data-es="Para nada" data-en="Not at all">Para nada</span>
-          <button class="scale-btn">1</button><button class="scale-btn">2</button><button class="scale-btn">3</button><button class="scale-btn">4</button><button class="scale-btn">5</button>
-          <span style="font-size:12px;color:var(--muted);margin-left:6px" data-es="Completamente" data-en="Completely">Completamente</span>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">6</span><span data-es="¿Qué te limita más para lograr tus metas? (puedes elegir varias)" data-en="What limits you most from achieving your goals?">¿Qué te limita más para lograr tus metas? (puedes elegir varias)</span></label>
-        <div class="options" data-q="q6" data-type="multi">
-          <button class="option-btn" data-es="Falta de tiempo" data-en="Lack of time">Falta de tiempo</button>
-          <button class="option-btn" data-es="Falta de disciplina" data-en="Lack of discipline">Falta de disciplina</button>
-          <button class="option-btn" data-es="No sé por dónde empezar" data-en="Don't know where to start">No sé por dónde empezar</button>
-          <button class="option-btn" data-es="Nadie me acompaña" data-en="No one holds me accountable">Nadie me acompaña</button>
-          <button class="option-btn" data-es="Pierdo motivación" data-en="I lose motivation">Pierdo motivación</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECCIÓN 2 — PERFIL -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Tu situación actual" data-en="Your current situation">Tu situación actual</p>
-
-      <div class="question">
-        <label><span class="q-num">7</span><span data-es="¿En qué etapa de vida estás?" data-en="What life stage are you in?">¿En qué etapa de vida estás?</span></label>
-        <div class="options" data-q="q7" data-type="single">
-          <button class="option-btn" data-es="Preparatoria" data-en="High school">Preparatoria</button>
-          <button class="option-btn" data-es="Universidad" data-en="University">Universidad</button>
-          <button class="option-btn" data-es="Primeros años de trabajo" data-en="Early career">Primeros años de trabajo</button>
-          <button class="option-btn" data-es="Otro" data-en="Other">Otro</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">8</span><span data-es="¿Cuánto tiempo mantienes una meta antes de abandonarla?" data-en="How long do you maintain a goal before giving up?">¿Cuánto tiempo mantienes una meta antes de abandonarla?</span></label>
-        <div class="options" data-q="q8" data-type="single">
-          <button class="option-btn" data-es="Menos de 1 semana" data-en="Less than 1 week">Menos de 1 semana</button>
-          <button class="option-btn" data-es="2–4 semanas" data-en="2–4 weeks">2–4 semanas</button>
-          <button class="option-btn" data-es="1–3 meses" data-en="1–3 months">1–3 meses</button>
-          <button class="option-btn" data-es="Las sostengo" data-en="I sustain them">Las sostengo</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">9</span><span data-es="¿Tienes personas que te hagan responsable de tus metas?" data-en="Do you have people who hold you accountable?">¿Tienes personas que te hagan responsable de tus metas?</span></label>
-        <div class="options" data-q="q9" data-type="single">
-          <button class="option-btn" data-es="Sí, siempre" data-en="Yes, always">Sí, siempre</button>
-          <button class="option-btn" data-es="A veces" data-en="Sometimes">A veces</button>
-          <button class="option-btn" data-es="No realmente" data-en="Not really">No realmente</button>
-          <button class="option-btn" data-es="No, y lo extraño" data-en="No, and I miss it">No, y lo extraño</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECCIÓN 3 — VALIDACIÓN -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Sobre la solución" data-en="About the solution">Sobre la solución</p>
-
-      <div class="question">
-        <label><span class="q-num">10</span><span data-es="¿Has usado una app de metas o hábitos? ¿Por qué la dejaste?" data-en="Have you used a goals or habits app? Why did you stop?">¿Has usado una app de metas o hábitos? ¿Por qué la dejaste?</span></label>
-        <textarea rows="3" placeholder="Puedes escribir el nombre y tu experiencia..." data-q="q10" data-es-placeholder="Puedes escribir el nombre y tu experiencia..." data-en-placeholder="You can write the app name and your experience..."></textarea>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">11</span><span data-es="¿Qué tan probable es que usaras GEMAS? (1 = para nada · 10 = definitivamente)" data-en="How likely are you to use GEMAS? (1 = not at all · 10 = definitely)">¿Qué tan probable es que usaras GEMAS? (1 = para nada · 10 = definitivamente)</span></label>
-        <div class="scale" data-q="q11" data-type="scale10" style="gap:5px">
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">1</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">2</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">3</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">4</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">5</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">6</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">7</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">8</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">9</button>
-          <button class="scale-btn" style="width:36px;height:36px;font-size:12px">10</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <label><span class="q-num">12</span><span data-es="¿Cuánto pagarías al mes por GEMAS?" data-en="How much would you pay per month for GEMAS?">¿Cuánto pagarías al mes por GEMAS?</span></label>
-        <div class="options" data-q="q12" data-type="single">
-          <button class="option-btn" data-es="No pagaría" data-en="Nothing">No pagaría</button>
-          <button class="option-btn" data-es="$1–5 USD" data-en="$1–5 USD">$1–5 USD</button>
-          <button class="option-btn" data-es="$6–10 USD" data-en="$6–10 USD">$6–10 USD</button>
-          <button class="option-btn" data-es="$11–15 USD" data-en="$11–15 USD">$11–15 USD</button>
-          <button class="option-btn" data-es="Más de $15 USD" data-en="More than $15 USD">Más de $15 USD</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECCIÓN 4 — ÁREAS DE VIDA -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Áreas de vida" data-en="Life areas">Áreas de vida</p>
-
-      <div class="question">
-        <label><span class="q-num">13</span><span data-es="Tenemos sistemas para estudiar, trabajar y producir — pero pocas veces para crecer como personas. ¿En cuáles de estas áreas sientes que tienes un sistema claro para crecer? (elige todas las que apliquen)" data-en="We have systems for studying and working — but rarely for growing as people. In which of these areas do you have a clear system to grow?">Tenemos sistemas para estudiar, trabajar y producir — pero pocas veces para crecer como personas. ¿En cuáles de estas áreas sientes que tienes un sistema claro para crecer?</span></label>
-        <div class="areas-grid" data-q="q13" data-type="multi-area">
-          <button class="area-btn"><span class="area-icon">📚</span><span data-es="Académico" data-en="Academic">Académico</span></button>
-          <button class="area-btn"><span class="area-icon">💼</span><span data-es="Profesional" data-en="Professional">Profesional</span></button>
-          <button class="area-btn"><span class="area-icon">💰</span><span data-es="Financiero" data-en="Financial">Financiero</span></button>
-          <button class="area-btn"><span class="area-icon">❤️</span><span data-es="Amor / Relaciones" data-en="Love / Relationships">Amor / Relaciones</span></button>
-          <button class="area-btn"><span class="area-icon">👨‍👩‍👧</span><span data-es="Familia" data-en="Family">Familia</span></button>
-          <button class="area-btn"><span class="area-icon">🏃</span><span data-es="Físico / Salud" data-en="Physical / Health">Físico / Salud</span></button>
-          <button class="area-btn"><span class="area-icon">🧘</span><span data-es="Espiritual / Propósito" data-en="Spiritual / Purpose">Espiritual / Propósito</span></button>
-          <button class="area-btn"><span class="area-icon">😊</span><span data-es="Emocional" data-en="Emotional">Emocional</span></button>
-          <button class="area-btn"><span class="area-icon">🌱</span><span data-es="Social / Comunidad" data-en="Social / Community">Social / Comunidad</span></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECCIÓN 5 — WAITLIST -->
-    <div class="survey-section">
-      <p class="survey-section-title" data-es="Únete a la lista de espera" data-en="Join the waitlist">Únete a la lista de espera</p>
-      <div class="question">
-        <label><span class="q-num">14</span><span data-es="¿Quieres ser de los primeros en probar GEMAS? Déjanos tu email 🔥" data-en="Want to be first to try GEMAS? Leave your email 🔥">¿Quieres ser de los primeros en probar GEMAS? Déjanos tu email 🔥</span></label>
-        <input type="email" id="emailInput" placeholder="tu@email.com" data-q="q14" />
-      </div>
-    </div>
-
-    <button class="submit-btn" onclick="submitForm()" id="submitBtn">
+    <a href="https://tally.so/r/9qojeV" target="_blank" class="hero-cta" style="display:inline-flex;margin:0 auto;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      <span data-es="Enviar y unirme a la beta" data-en="Submit and join the beta">Enviar y unirme a la beta</span>
-    </button>
-  </div>
+      <span data-es="Responder encuesta · 2 minutos" data-en="Take the survey · 2 minutes">Responder encuesta · 2 minutos</span>
+    </a>
 
-  <div class="success-msg" id="successMsg">
-    <div class="success-icon">💎</div>
-    <h3 data-es="¡Ya eres parte de GEMAS!" data-en="You're part of GEMAS!">¡Ya eres parte de GEMAS!</h3>
-    <p data-es="Gracias por tu tiempo. Te avisaremos cuando abramos la beta. Comparte GEMAS con alguien que lo necesite." data-en="Thank you! We'll notify you when we open the beta. Share GEMAS with someone who needs it.">Gracias por tu tiempo. Te avisaremos cuando abramos la beta. Comparte GEMAS con alguien que lo necesite.</p>
+    <div style="display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap;">
+      <span style="font-size:13px;color:var(--muted)">✓ <span data-es="Anónimo" data-en="Anonymous">Anónimo</span></span>
+      <span style="font-size:13px;color:var(--muted)">✓ <span data-es="Sin registro" data-en="No sign up">Sin registro</span></span>
+      <span style="font-size:13px;color:var(--muted)">✓ <span data-es="2 minutos" data-en="2 minutes">2 minutos</span></span>
+    </div>
   </div>
 </section>
 </div>
@@ -493,6 +333,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+</script>
+<script>
+// Fetch live counter from Google Apps Script
+fetch('https://script.google.com/macros/s/AKfycbxBsn16zyTXfTYWKiTW3vZucEyeG-lBkVIyUuhY308BvED6wDQGMEuzzthteFRpMZYl/exec')
+  .then(r => r.json())
+  .then(data => {
+    if (data.count > 0) {
+      document.getElementById('counterNum').textContent = data.count;
+      document.getElementById('counterBlock').style.display = 'block';
+    }
+  })
+  .catch(() => {}); // silently fail if blocked
 </script>
 </body>
 </html>
